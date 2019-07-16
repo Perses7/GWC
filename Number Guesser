@@ -1,0 +1,28 @@
+#imports the ability to get a random number (we will learn more about this later!)
+from random import *
+import sys
+
+#Generates a random integer.
+aRandomNumber = randint(1, 20)
+count = 0
+while count < 3:
+
+    guess = input("Guess a number between 1 and 20 (inclusive): ")
+    if not guess.isnumeric():
+        print ("suck it")
+    else:
+        guess = int(guess)
+        if guess > 20 or guess < 0:
+            print ("guess a number within 1 and 20")
+        else:
+            count = count +1
+            if count >= 3:
+                print ("the number was " + str(aRandomNumber))
+                sys.exit()
+            elif aRandomNumber > guess:
+                print ("Guess higher")
+            elif aRandomNumber < guess:
+                print ("guess lower")
+            elif aRandomNumber == guess:
+                print ("congrats")
+                sys.exit()
